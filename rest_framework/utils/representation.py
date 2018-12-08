@@ -52,6 +52,8 @@ def smart_repr(value):
 
 def field_repr(field, force_many=False):
     kwargs = field._kwargs
+    kwargs.pop('queryset', None)
+
     if force_many:
         kwargs = kwargs.copy()
         kwargs['many'] = True
